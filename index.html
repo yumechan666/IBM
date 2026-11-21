@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mochi Lagoon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-screen relative overflow-x-hidden">
+
+  <!-- Aquarium decorations (pointer-events:none so they never block buttons) -->
+  <div class="bubbles-container" aria-hidden="true">
+    <span class="bubble"></span><span class="bubble"></span>
+    <span class="bubble"></span><span class="bubble"></span>
+    <span class="bubble"></span><span class="bubble"></span>
+    <span class="bubble"></span><span class="bubble"></span>
+  </div>
+  <div class="seaweed-container" aria-hidden="true">
+    <span class="seaweed seaweed-left"></span>
+    <span class="seaweed seaweed-right"></span>
+  </div>
+
+  <!-- SITE HEADER -->
+  <header class="relative z-10 text-center pt-10 pb-4 px-4">
+    <div class="mochi-logo" aria-hidden="true"></div>
+    <h1 class="site-title text-4xl sm:text-5xl font-black tracking-wide mt-2">Mochi Lagoon</h1>
+    <p class="site-tagline text-sm sm:text-base mt-1">Petualangan axolotl pink yang sangat penasaran 🌊</p>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="relative z-10 max-w-5xl mx-auto px-4 pb-20">
+
+    <!-- HOME VIEW -->
+    <section id="home-view" aria-label="Daftar episode">
+      <h2 class="sr-only">Pilih episode</h2>
+      <div id="episode-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <!-- Cards injected by JS -->
+      </div>
+    </section>
+
+    <!-- EPISODE VIEW -->
+    <section id="episode-view" class="hidden" aria-label="Baca episode">
+
+      <!-- Back button -->
+      <button id="btn-back" type="button"
+        class="back-btn flex items-center gap-2 mt-4 mb-6 px-4 py-2 rounded-full text-sm font-semibold focus-ring"
+        aria-label="Kembali ke daftar episode">
+        <span aria-hidden="true">←</span> Kembali ke episode
+      </button>
+
+      <!-- Episode header -->
+      <div class="episode-card rounded-3xl p-6 sm:p-10">
+        <h2 id="episode-title" class="episode-title text-2xl sm:text-3xl font-black mb-4" tabindex="-1"></h2>
+
+        <!-- Mochi illustration -->
+        <div id="episode-illustration" class="episode-illo mx-auto mb-6" aria-hidden="true"></div>
+
+        <!-- Opening text -->
+        <p id="episode-opening" class="episode-opening text-base sm:text-lg leading-relaxed mb-8"></p>
+
+        <!-- Choice buttons -->
+        <div id="choices-area" role="group" aria-labelledby="choices-label">
+          <p id="choices-label" class="text-sm font-bold uppercase tracking-widest mb-3 choice-label">Apa yang Mochi lakukan?</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button id="btn-choice-a" type="button"
+              class="choice-btn flex-1 px-5 py-4 rounded-2xl text-left font-semibold text-sm sm:text-base focus-ring"
+              aria-pressed="false"></button>
+            <button id="btn-choice-b" type="button"
+              class="choice-btn flex-1 px-5 py-4 rounded-2xl text-left font-semibold text-sm sm:text-base focus-ring"
+              aria-pressed="false"></button>
+          </div>
+        </div>
+
+        <!-- Ending -->
+        <div id="ending-area" class="hidden mt-6" aria-live="polite" aria-atomic="true">
+          <div class="ending-bubble rounded-2xl p-5 sm:p-6">
+            <p id="ending-text" class="ending-text text-base sm:text-lg leading-relaxed"></p>
+          </div>
+          <button id="btn-reset" type="button"
+            class="reset-btn mt-4 px-6 py-3 rounded-full text-sm font-bold focus-ring">
+            🔄 Ulang cerita
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="relative z-10 text-center py-6 text-xs footer-text" aria-label="Footer">
+    Mochi Lagoon &copy; 2026 &mdash; Cerita axolotl sederhana yang bahagia
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
